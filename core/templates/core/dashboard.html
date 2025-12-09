@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h2>Weather Dashboard</h2>
+
+<input type="text" id="cityInput" placeholder="Enter city name">
+<button onclick="getWeather()">Get Weather</button>
+
+<p id="temp"></p>
+<p id="condition"></p>
+
+<canvas id="weatherChart" width="300" height="150"></canvas>
+
+<script>
+let chart;
+
+function getWeather() {
+    const city = document.getElementById('cityInput').value;
+    
+    fetch(`/api/weather/${city}/`)
+        .then(response => response.json())
+        .then(data => {
+            const temperature = data.main.temp;
+            const weather = data.weather[0].description;
+
+            document.getElementById('temp').innerText = `Temperature: ${temperature}°C`;
+            document.getElementById('condition').innerText = `Condition: ${weather}`;
+
+            drawChart(temperature);
+        })
+        .catch(error => alert("Error fetching weather"));
+}
+
+function drawChart(temp) {
+    const ctx = document.getElementById('weatherChart').getContext('2d');
+
+    if (chart) {
+        chart.destroy();
+    }
+
+    chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Temperature (°C)'],
+            datasets: [{
+                label: 'Weather Data',
+                data: [temp]
+            }]
+        }
+    });
+}
+</script>
+
+</body>
+</html>
