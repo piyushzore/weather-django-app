@@ -54,3 +54,16 @@ def dashboard(request):
     """
     return render(request, 'core/dashboard.html')
 
+from django.http import JsonResponse
+
+def home(request):
+    return JsonResponse({
+        "success": True,
+        "message": "Weather API is live ✅",
+        "endpoints": {
+            "Cities": "/api/cities/",
+            "Weather": "/api/weather/Mumbai/",
+            "Dashboard": "/api/dashboard/"
+        }
+    })
+
