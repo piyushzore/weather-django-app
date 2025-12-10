@@ -22,7 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-temporary-dev-key')
 DEBUG = config('DEBUG', default='False') == 'True'
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'weather-django-app-9poc.onrender.com'
+]
+
 
 OPENWEATHER_API_KEY = '15ef7a52c70cc848fdc02bab3941d7e5'
 
@@ -121,5 +126,6 @@ USE_TZ = True
 
 
 STATIC_URL = 'static/'
+
 
 
