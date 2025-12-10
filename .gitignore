@@ -1,19 +1,16 @@
-# Virtual Environment
+
 venv/
 
-# Python cache
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 
-# Environment files
 .env
 .env.*
 
-# Local DB & OS files
 *.sqlite3
 .DS_Store
 
-# Node (if ever used)
 node_modules/
+
