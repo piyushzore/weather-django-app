@@ -5,6 +5,8 @@ psycopg2-binary
 whitenoise
 python-decouple
 djangorestframework
+requests
+
 
 
 
