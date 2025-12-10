@@ -9,23 +9,17 @@ import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# -------------------------
-# SECURITY
-# -------------------------
+
 
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-temporary-dev-key')
 DEBUG = config('DEBUG', default='False') == 'True'
 ALLOWED_HOSTS = ['*']
 
-# -------------------------
-# API KEYS
-# -------------------------
+
 
 OPENWEATHER_API_KEY = config('OPENWEATHER_API_KEY', default='')
 
-# -------------------------
-# APPS
-# -------------------------
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -39,9 +33,7 @@ INSTALLED_APPS = [
     'core',
 ]
 
-# -------------------------
-# MIDDLEWARE
-# -------------------------
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,15 +47,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# -------------------------
-# URLS
-# -------------------------
+
 
 ROOT_URLCONF = 'weather_project.urls'
 
-# -------------------------
-# TEMPLATES (IMPORTANT FOR DEMO PAGE)
-# -------------------------
+
 
 TEMPLATES = [
     {
@@ -80,15 +68,11 @@ TEMPLATES = [
     },
 ]
 
-# -------------------------
-# WSGI
-# -------------------------
+
 
 WSGI_APPLICATION = 'weather_project.wsgi.application'
 
-# -------------------------
-# ✅ DATABASE (RENDER POSTGRES)
-# -------------------------
+
 
 DATABASES = {
     'default': dj_database_url.config(
@@ -96,9 +80,7 @@ DATABASES = {
     )
 }
 
-# -------------------------
-# PASSWORD VALIDATION
-# -------------------------
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -115,25 +97,20 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# -------------------------
-# LOCALIZATION
-# -------------------------
+
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
-# -------------------------
-# STATIC FILES
-# -------------------------
+
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# -------------------------
-# DEFAULT PK TYPE
-# -------------------------
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
