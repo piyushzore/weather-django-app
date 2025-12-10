@@ -1,6 +1,6 @@
-Django==6.0
-djangorestframework
-psycopg2-binary
-requests
-python-decouple
+Django
 gunicorn
+dj-database-url
+psycopg2-binary
+whitenoise
+
