@@ -1,9 +1,12 @@
-from django.contrib import admin
 from django.urls import path, include
-from core.views import home
+from rest_framework.routers import DefaultRouter
+from .views import CityViewSet, WeatherView, dashboard
+
+router = DefaultRouter()
+router.register(r'cities', CityViewSet)
 
 urlpatterns = [
-    path('', home),   
-    path('admin/', admin.site.urls),
-    path('api/', include('core.urls')),
+    path('', include(router.urls)),             
+    path('weather/<str:city>/', WeatherView.as_view()),  
+    path('dashboard/', dashboard),              
 ]
